@@ -16,6 +16,50 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor(){
+    this.result = 0;
+  }
+  add = function(val){
+    this.result = this.result + val;
+  }
+  subtract = function(val){
+    this.result = this.result - val;
+  }
+  multiply = function(val){
+    this.result = this.result * val;
+  }
+  divide = function(val){
+    if(val == 0){
+      throw new Error("Error!")
+    }
+    this.result /= val
+  }
+  clear = function(){
+    this.result = 0;
+  }
+  getResult = function(){
+    return this.result;
+  }
+  calculate = function(str){
+    str = str.split("").filter((ele) => {
+      if("1234567890+-*/(). ".includes(ele)){
+        return true;
+      }else{
+        throw new Error("Error!")
+      }
+    }).join("")
+    const res = eval(str)
+    if(res == Infinity || res === -Infinity){
+      throw new Error("Error!")
+    }
+    this.result = res;
+    return res;
+  }
+}
+
+// let calculator = new Calculator();
+// calculator.calculate('10 +   2 *    (   6 - (4 + 1) / 2) + 7')
+// calculator.calculate('(   15 + 3) /   6   ')
 
 module.exports = Calculator;

@@ -4,7 +4,11 @@
 */
 
 function isPalindrome(str) {
-  return true;
+  str = str.toLowerCase().split("");
+  str = str.filter((val) => {
+    return val.charCodeAt(0) >= 97 && val.charCodeAt(0)<=122;
+  })
+  return str.join("") === str.reverse().join("")
 }
 
 module.exports = isPalindrome;
