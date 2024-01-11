@@ -19,7 +19,6 @@ function wait2(t) {
             resolve()
         },t*1000)
     })
-
 }
 
 function wait3(t) {
